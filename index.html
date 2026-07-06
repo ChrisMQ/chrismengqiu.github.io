@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ============================================================
+     EDIT THIS: page title shown in the browser tab & search results
+     ============================================================ -->
+<title>Meng (Chris) Qiu</title>
+<meta name="description" content="Academic homepage of Meng (Chris) Qiu — research, publications, and CV.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  /* ============================================================
+     THEME — change these values to restyle the whole site
+     ============================================================ */
+  :root{
+    --paper:      #f8f6f2;   /* page background */
+    --surface:    #ffffff;   /* cards */
+    --ink:        #16202e;   /* main text / headings */
+    --ink-soft:   #4a5563;   /* secondary text */
+    --accent:     #2d6a63;   /* links, rules, hover */
+    --accent-dk:  #1f4d47;
+    --line:       #e4e0d8;   /* hairline borders */
+    --maxw:       1080px;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Inter",-apple-system,BlinkMacSystemFont,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{ color:var(--accent); text-decoration:none; transition:color .18s ease; }
+  a:hover{ color:var(--accent-dk); }
+
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 28px; }
+  .eyebrow{
+    font-size:.72rem; font-weight:600; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--accent);
+  }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(248,246,242,.86);
+    backdrop-filter:saturate(180%) blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{ display:flex; align-items:center; justify-content:space-between; height:66px; }
+  .brand{ font-family:"Spectral",serif; font-size:1.18rem; font-weight:600; color:var(--ink); }
+  .nav-links{ display:flex; gap:30px; list-style:none; }
+  .nav-links a{ color:var(--ink-soft); font-size:.92rem; font-weight:500; }
+  .nav-links a:hover{ color:var(--accent); }
+  .nav-toggle{ display:none; background:none; border:0; font-size:1.5rem; color:var(--ink); cursor:pointer; }
+
+  /* ---------- HERO ---------- */
+  .hero{ padding:88px 0 72px; border-bottom:1px solid var(--line); }
+  .hero-grid{ display:grid; grid-template-columns:1fr 240px; gap:56px; align-items:center; }
+  .hero h1{
+    font-family:"Spectral",serif; font-weight:600;
+    font-size:clamp(2.6rem,6vw,4rem); line-height:1.05; letter-spacing:-.01em;
+    margin:14px 0 22px;
+  }
+  .hero .lede{ font-size:1.16rem; color:var(--ink-soft); max-width:52ch; margin-bottom:26px; }
+  .hero .title-line{
+    font-size:.95rem; font-weight:500; color:var(--ink);
+    padding-top:20px; border-top:1px solid var(--line); margin-bottom:28px;
+  }
+  .hero .title-line span{ color:var(--ink-soft); }
+  .cta-row{ display:flex; gap:14px; flex-wrap:wrap; }
+  .btn{
+    display:inline-block; font-size:.92rem; font-weight:600;
+    padding:12px 22px; border-radius:2px; transition:all .18s ease;
+  }
+  .btn-solid{ background:var(--accent); color:#fff; }
+  .btn-solid:hover{ background:var(--accent-dk); color:#fff; }
+  .btn-ghost{ border:1px solid var(--line); color:var(--ink); }
+  .btn-ghost:hover{ border-color:var(--accent); color:var(--accent); }
+
+  /* portrait */
+  .portrait{
+    width:240px; height:240px; border-radius:3px; object-fit:cover;
+    background:var(--surface); border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--ink-soft); font-size:.82rem; text-align:center;
+  }
+
+  /* ---------- SECTION ---------- */
+  section.block{ padding:72px 0; border-bottom:1px solid var(--line); }
+  .block h2{
+    font-family:"Spectral",serif; font-weight:600;
+    font-size:1.9rem; margin:8px 0 8px; letter-spacing:-.01em;
+  }
+  .block .intro{ color:var(--ink-soft); max-width:60ch; margin-bottom:40px; }
+
+  /* research cards */
+  .cards{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .card{
+    background:var(--surface); border:1px solid var(--line);
+    border-radius:3px; padding:28px 26px; transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .card:hover{ transform:translateY(-3px); box-shadow:0 10px 30px rgba(22,32,46,.07); }
+  .card h3{ font-family:"Spectral",serif; font-size:1.2rem; font-weight:600; margin:14px 0 10px; }
+  .card p{ font-size:.95rem; color:var(--ink-soft); margin-bottom:16px; }
+  .card .more{ font-size:.85rem; font-weight:600; }
+  .card .more::after{ content:" \2192"; }
+
+  /* publications */
+  .pub{ display:flex; gap:20px; padding:20px 0; border-top:1px solid var(--line); }
+  .pub:first-of-type{ border-top:0; }
+  .pub .yr{ font-family:"Spectral",serif; font-size:1.05rem; color:var(--accent); min-width:52px; font-weight:500; }
+  .pub .meta h4{ font-size:1.02rem; font-weight:600; margin-bottom:4px; }
+  .pub .meta .venue{ font-size:.9rem; color:var(--ink-soft); font-style:italic; }
+  .pub .meta .authors{ font-size:.9rem; color:var(--ink-soft); }
+  .pub .meta .links{ margin-top:7px; font-size:.82rem; display:flex; gap:14px; }
+
+  /* contact */
+  .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px 40px; max-width:640px; }
+  .contact-grid .row{ padding:14px 0; border-bottom:1px solid var(--line); }
+  .contact-grid .k{ font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:3px; }
+  .contact-grid .v{ font-size:.98rem; }
+
+  /* footer */
+  footer{ padding:40px 0; }
+  .foot-inner{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; }
+  .foot-inner .socials{ display:flex; gap:20px; font-size:.9rem; }
+  .foot-inner .copy{ font-size:.85rem; color:var(--ink-soft); }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:820px){
+    .hero-grid{ grid-template-columns:1fr; gap:36px; }
+    .portrait{ order:-1; }
+    .cards{ grid-template-columns:1fr; }
+    .contact-grid{ grid-template-columns:1fr; }
+    .nav-links{
+      display:none; position:absolute; top:66px; left:0; right:0;
+      flex-direction:column; gap:0; background:var(--paper);
+      border-bottom:1px solid var(--line); padding:8px 28px 18px;
+    }
+    .nav-links.open{ display:flex; }
+    .nav-links li{ padding:10px 0; border-top:1px solid var(--line); }
+    .nav-toggle{ display:block; }
+  }
+
+  /* focus visibility + reduced motion (accessibility floor) */
+  a:focus-visible, button:focus-visible, .btn:focus-visible{
+    outline:2px solid var(--accent); outline-offset:3px;
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{ transition:none !important; scroll-behavior:auto !important; }
+    .card:hover{ transform:none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================ NAV ============================ -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <!-- EDIT: display name (kept as "Meng (Chris) Qiu" to match publications) -->
+    <span class="brand">Meng (Chris) Qiu</span>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    <ul class="nav-links" id="menu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#cv">CV</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- ============================ HERO ============================ -->
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Academic Homepage</span>
+      <!-- EDIT: your name -->
+      <h1>Meng&nbsp;(Chris)&nbsp;Qiu</h1>
+      <!-- EDIT: one-sentence research mission (this is the line that "sells" your work) -->
+      <p class="lede">
+        I study [your one-line research focus] — [a sentence on the question you
+        care about and why it matters to scholars, practitioners, or the public].
+      </p>
+      <!-- EDIT: your position / department / institution -->
+      <p class="title-line">
+        Ph.D. Candidate in [Field] &nbsp;·&nbsp;
+        <span>[Department], [University]</span>
+      </p>
+      <div class="cta-row">
+        <!-- EDIT: your email -->
+        <a class="btn btn-solid" href="mailto:you@university.edu">Contact me</a>
+        <!-- EDIT: link your CV PDF (drop the file in the repo and update the href) -->
+        <a class="btn btn-ghost" href="#cv">Curriculum Vitae</a>
+      </div>
+    </div>
+    <!-- EDIT: replace this placeholder with an <img class="portrait" src="assets/photo.jpg" alt="Meng (Chris) Qiu"> -->
+    <div class="portrait">Add your<br>photo here</div>
+  </div>
+</section>
+
+<!-- ========================= RESEARCH ========================= -->
+<section class="block" id="research">
+  <div class="wrap">
+    <span class="eyebrow">Focus Areas</span>
+    <h2>Research</h2>
+    <p class="intro">
+      A short paragraph framing your research program — the through-line that
+      connects the projects below.
+    </p>
+    <div class="cards">
+      <!-- EDIT each card: heading, description, link -->
+      <article class="card">
+        <span class="eyebrow">01</span>
+        <h3>Research Theme One</h3>
+        <p>Two sentences describing the question, method, or contribution of this line of work.</p>
+        <a class="more" href="#publications">Explore</a>
+      </article>
+      <article class="card">
+        <span class="eyebrow">02</span>
+        <h3>Research Theme Two</h3>
+        <p>Two sentences describing the question, method, or contribution of this line of work.</p>
+        <a class="more" href="#publications">Explore</a>
+      </article>
+      <article class="card">
+        <span class="eyebrow">03</span>
+        <h3>Research Theme Three</h3>
+        <p>Two sentences describing the question, method, or contribution of this line of work.</p>
+        <a class="more" href="#publications">Explore</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= PUBLICATIONS ======================= -->
+<section class="block" id="publications">
+  <div class="wrap">
+    <span class="eyebrow">Selected Work</span>
+    <h2>Publications</h2>
+    <p class="intro">
+      List your papers newest-first. A full list can live on Google Scholar —
+      link it in the footer.
+    </p>
+
+    <!-- EDIT each entry. Copy a .pub block to add more. -->
+    <div class="pub">
+      <div class="yr">2026</div>
+      <div class="meta">
+        <h4>Title of your most recent paper goes here</h4>
+        <div class="authors"><strong>M. Qiu</strong>, A. Coauthor, B. Coauthor</div>
+        <div class="venue">Venue / Conference / Journal, 2026</div>
+        <div class="links">
+          <a href="#">PDF</a><a href="#">arXiv</a><a href="#">Code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="yr">2025</div>
+      <div class="meta">
+        <h4>Title of an earlier paper goes here</h4>
+        <div class="authors">A. Coauthor, <strong>M. Qiu</strong>, C. Coauthor</div>
+        <div class="venue">Venue / Conference / Journal, 2025</div>
+        <div class="links">
+          <a href="#">PDF</a><a href="#">Project page</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="yr">2024</div>
+      <div class="meta">
+        <h4>Title of another paper goes here</h4>
+        <div class="authors"><strong>M. Qiu</strong>, D. Coauthor</div>
+        <div class="venue">Venue / Conference / Journal, 2024</div>
+        <div class="links">
+          <a href="#">PDF</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CV ============================ -->
+<section class="block" id="cv">
+  <div class="wrap">
+    <span class="eyebrow">Background</span>
+    <h2>Curriculum Vitae</h2>
+    <p class="intro">
+      A brief note on your education and appointments, with a link to the full PDF.
+    </p>
+    <div class="contact-grid">
+      <div class="row"><div class="k">Education</div><div class="v">Ph.D., [University] — [year]–present</div></div>
+      <div class="row"><div class="k">Previously</div><div class="v">B.S. / M.S., [University] — [year]</div></div>
+      <div class="row"><div class="k">Interests</div><div class="v">[keyword], [keyword], [keyword]</div></div>
+      <div class="row"><div class="k">Full CV</div><div class="v"><a href="#">Download PDF &#8594;</a></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= CONTACT ========================= -->
+<section class="block" id="contact">
+  <div class="wrap">
+    <span class="eyebrow">Get in touch</span>
+    <h2>Contact</h2>
+    <div class="contact-grid" style="margin-top:26px;">
+      <div class="row"><div class="k">Email</div><div class="v"><a href="mailto:you@university.edu">you@university.edu</a></div></div>
+      <div class="row"><div class="k">Office</div><div class="v">[Building, Room], [University]</div></div>
+      <div class="row"><div class="k">Scholar</div><div class="v"><a href="#">Google Scholar &#8594;</a></div></div>
+      <div class="row"><div class="k">Code</div><div class="v"><a href="#">GitHub &#8594;</a></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================== FOOTER ========================== -->
+<footer>
+  <div class="wrap foot-inner">
+    <div class="socials">
+      <!-- EDIT: your profile links -->
+      <a href="#">Google Scholar</a>
+      <a href="#">ORCID</a>
+      <a href="#">GitHub</a>
+      <a href="#">LinkedIn</a>
+    </div>
+    <div class="copy">© <span id="year"></span> Meng (Chris) Qiu</div>
+  </div>
+</footer>
+
+<script>
+  // mobile menu toggle
+  const btn = document.querySelector('.nav-toggle');
+  const menu = document.getElementById('menu');
+  btn.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+  menu.querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => { menu.classList.remove('open'); btn.setAttribute('aria-expanded', false); })
+  );
+  // current year
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
