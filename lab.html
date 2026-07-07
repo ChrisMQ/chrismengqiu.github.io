@@ -154,6 +154,29 @@
     *{ transition:none !important; scroll-behavior:auto !important; }
     .card:hover{ transform:none; }
   }
+
+  /* collaborator map */
+  .map-wrap{ position:relative; width:100%; aspect-ratio:2/1; margin-top:8px;
+             border:1px solid var(--line); border-radius:4px; overflow:hidden;
+             background:#f8f6f2 url('worldmap.png') center/contain no-repeat; }
+  .map-lines{ position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
+  .marker{ position:absolute; width:13px; height:13px; border-radius:50%;
+           border:2px solid var(--accent); background:#fff; transform:translate(-50%,-50%);
+           cursor:pointer; transition:transform .12s ease; }
+  .marker.home{ background:var(--accent); width:15px; height:15px; }
+  .marker:hover{ transform:translate(-50%,-50%) scale(1.35); }
+  .map-popup{ position:absolute; z-index:10; display:none; transform:translate(-50%,calc(-100% - 14px));
+          background:#fff; border:1px solid var(--line); border-radius:4px;
+          box-shadow:0 8px 26px rgba(22,32,46,.14); padding:11px 13px; min-width:180px; max-width:240px; }
+  .map-popup .inst{ font-family:"Spectral",serif; font-weight:600; font-size:.95rem; margin-bottom:5px; }
+  .map-popup a, .map-popup span.p{ display:block; font-size:.88rem; color:var(--accent); text-decoration:none; padding:1px 0; }
+  .map-popup span.p{ color:var(--ink-soft); }
+  .map-popup a:hover{ text-decoration:underline; }
+  .map-legend{ margin-top:14px; font-size:.85rem; color:var(--ink-soft); display:flex; gap:22px; flex-wrap:wrap; }
+  .map-legend span{ display:inline-flex; align-items:center; gap:8px; }
+  .map-legend .dot{ width:12px; height:12px; border-radius:50%; }
+  .map-legend .dot.home{ background:var(--accent); }
+  .map-legend .dot.collab{ background:#fff; border:2px solid var(--accent); }
 </style>
 </head>
 <body>
@@ -182,11 +205,12 @@
     <!-- EDIT: your lab's name -->
     <h1>The Infinite Modeling Lab</h1>
     <p class="lede">
-      We are a research team at UC Merced, studying flexible models 
-      for learning and inference under uncertainty. Our work draws on 
-      Bayesian nonparametrics, variational inference, and machine learning, 
-      and spans structural equation modeling, missing data, and causal inference 
-      — with the goal of building methods that support reliable inference from real-world data.
+      We are a research group at the University of California, Merced, studying 
+      flexible models for learning and inference under uncertainty. Our
+      work draws on Bayesian nonparametrics, variational inference, and deep
+      learning, and spans structural equation modeling, missing data, and causal
+      inference — with the goal of building methods that support reliable inference
+      from real-world data.
     </p>
     <div class="cta-row">
       <a class="btn btn-solid" href="#join">Join the lab</a>
@@ -223,6 +247,8 @@
         <!-- EDIT: replace with <img class="avatar" src="assets/you.jpg" alt="Meng (Chris) Qiu"> -->
         <img class="avatar" src="Chris.jpg" alt="Meng (Chris) Qiu">
         <h4>Meng (Chris) Qiu</h4>
+        <div class="role">Principal Investigator</div>
+        <div class="plinks"><a href="index.html">Homepage</a><a href="#">Scholar</a></div>
       </div>
     </div>
 
@@ -232,16 +258,19 @@
       <div class="person">
         <div class="avatar">Photo</div>
         <h4>Student Name</h4>
+        <div class="role">Ph.D. Student · [year] cohort</div>
         <div class="plinks"><a href="#">Website</a></div>
       </div>
       <div class="person">
         <div class="avatar">Photo</div>
         <h4>Student Name</h4>
+        <div class="role">Ph.D. Student · [year] cohort</div>
         <div class="plinks"><a href="#">Website</a></div>
       </div>
       <div class="person">
         <div class="avatar">Photo</div>
         <h4>Student Name</h4>
+        <div class="role">Ph.D. Student · [year] cohort</div>
         <div class="plinks"><a href="#">Website</a></div>
       </div>
     </div>
@@ -270,6 +299,23 @@
     <p class="subhead">Alumni</p>
     <div class="prose">
       <p>Former Student — now [position, place]. &nbsp;·&nbsp; Former Student — now [position, place].</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== COLLABORATOR MAP ====================== -->
+<section class="block" id="collab-map">
+  <div class="wrap">
+    <span class="eyebrow">Around the world</span>
+    <h2>Collaborators around the world</h2>
+    <p class="intro">Lines connect UC Merced to each collaborating institution. Click a marker for names and links.</p>
+    <div class="map-wrap" id="mapWrap">
+      <svg class="map-lines" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="16.55" y1="29.24" x2="28.63" y2="28.34" stroke="#2d6a63" stroke-width="0.18" opacity="0.4"/><line x1="16.55" y1="29.24" x2="30.25" y2="26.47" stroke="#2d6a63" stroke-width="0.18" opacity="0.4"/><line x1="16.55" y1="29.24" x2="26.94" y2="27.77" stroke="#2d6a63" stroke-width="0.18" opacity="0.4"/><line x1="16.55" y1="29.24" x2="26.74" y2="26.51" stroke="#2d6a63" stroke-width="0.18" opacity="0.4"/><line x1="16.55" y1="29.24" x2="17.41" y2="31.13" stroke="#2d6a63" stroke-width="0.18" opacity="0.4"/><line x1="16.55" y1="29.24" x2="26.05" y2="26.83" stroke="#2d6a63" stroke-width="0.18" opacity="0.4"/><line x1="16.55" y1="29.24" x2="82.55" y2="28.27" stroke="#2d6a63" stroke-width="0.18" opacity="0.4"/><line x1="16.55" y1="29.24" x2="82.32" y2="27.77" stroke="#2d6a63" stroke-width="0.18" opacity="0.4"/><line x1="16.55" y1="29.24" x2="85.18" y2="29.19" stroke="#2d6a63" stroke-width="0.18" opacity="0.4"/></svg>
+      <div class="map-popup" id="mapPopup"></div>
+    </div>
+    <div class="map-legend">
+      <span><i class="dot home"></i> UC Merced (home)</span>
+      <span><i class="dot collab"></i> Collaborating institution</span>
     </div>
   </div>
 </section>
@@ -305,12 +351,9 @@
     <div class="join" style="margin-top:24px;">
       <h3>Prospective students &amp; collaborators</h3>
       <p>
-        I welcome inquiries from prospective Ph.D. students 
-        (apply through UC Merced's Psychological Sciences program, 
-        and feel free to email me first), as well as master's and 
-        undergraduate students interested in research assistantships. 
-        To make it easy for me to respond, please include your CV and a 
-        brief note on your research interests.
+        A note on who you're looking for — prospective Ph.D. students, master's or
+        undergraduate researchers, postdocs — and how they should reach out. Mention
+        what to include (CV, research interests) so the email is easy to act on.
       </p>
       <a class="btn btn-solid" href="mailto:you@university.edu">Get in touch</a>
     </div>
@@ -334,6 +377,29 @@
   menu.querySelectorAll('a').forEach(a =>
     a.addEventListener('click', () => { menu.classList.remove('open'); btn.setAttribute('aria-expanded', false); })
   );
+  // collaborator map
+  (function(){
+    const sites = [{"x": 16.55, "y": 29.24, "inst": "University of California, Merced", "home": true, "people": [["Sarah Depaoli", "https://psychology.ucmerced.edu/content/sarah-depaoli"], ["Fan Jia", "https://psychology.ucmerced.edu/content/fan-jia"], ["Haiyan Liu", "https://psychology.ucmerced.edu/content/haiyan-liu"]]}, {"x": 28.63, "y": 28.34, "inst": "University of Maryland", "home": false, "people": [["Shitao Fan", null], ["Lizhen Lin", "https://blog.umd.edu/lizhen01/"]]}, {"x": 30.25, "y": 26.47, "inst": "Boston University", "home": false, "people": [["Qimin Liu", "https://www.bu.edu/psych/profile/qimin-liu/"]]}, {"x": 26.94, "y": 27.77, "inst": "The Ohio State University", "home": false, "people": [["Sally Paganin", "https://stat.osu.edu/people/paganin.1"]]}, {"x": 26.74, "y": 26.51, "inst": "University of Michigan", "home": false, "people": [["Yajuan Si", "https://sph.umich.edu/faculty-profiles/si-yajuan.html"]]}, {"x": 17.41, "y": 31.13, "inst": "University of California, Riverside", "home": false, "people": [["Weixin Yao", "https://faculty.ucr.edu/~weixiny/"]]}, {"x": 26.05, "y": 26.83, "inst": "University of Notre Dame", "home": false, "people": [["Ke-Hai Yuan", "https://psychology.nd.edu/people/ke-hai-yuan/"]]}, {"x": 82.55, "y": 28.27, "inst": "Nankai University", "home": false, "people": [["Fanlin Ding", "https://zsg.nankai.edu.cn/info/1100/1089.htm"]]}, {"x": 82.32, "y": 27.77, "inst": "China Agricultural University", "home": false, "people": [["Wenjie Zhao", "https://cidga.cau.edu.cn/art/2024/9/2/art_39918_1035628.html"]]}, {"x": 85.18, "y": 29.19, "inst": "Inha University", "home": false, "people": [["Ilsang Ohn", "https://sites.google.com/view/iohn"]]}];
+    const wrap = document.getElementById('mapWrap');
+    const popup = document.getElementById('mapPopup');
+    if (wrap) {
+      sites.forEach(s => {
+        const m = document.createElement('div');
+        m.className = 'marker' + (s.home ? ' home' : '');
+        m.style.left = s.x + '%'; m.style.top = s.y + '%';
+        m.addEventListener('click', e => {
+          e.stopPropagation();
+          const people = s.people.map(p => p[1]
+            ? '<a href="'+p[1]+'" target="_blank" rel="noopener">'+p[0]+'</a>'
+            : '<span class="p">'+p[0]+'</span>').join('');
+          popup.innerHTML = '<div class="inst">'+s.inst+(s.home?' &middot; home':'')+'</div>'+people;
+          popup.style.left = s.x + '%'; popup.style.top = s.y + '%'; popup.style.display = 'block';
+        });
+        wrap.appendChild(m);
+      });
+      wrap.addEventListener('click', () => { popup.style.display = 'none'; });
+    }
+  })();
   document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 </body>
