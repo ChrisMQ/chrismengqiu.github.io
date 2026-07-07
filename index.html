@@ -113,6 +113,12 @@
   .card .more{ font-size:.85rem; font-weight:600; }
   .card .more::after{ content:" \2192"; }
 
+  /* research subsection titles (Methodological / Substantive) */
+  .group-title{
+    font-family:"Spectral",serif; font-size:1.35rem; font-weight:600;
+    margin:14px 0 22px; letter-spacing:-.01em;
+  }
+
   /* publications */
   .pub{ display:flex; gap:20px; padding:20px 0; border-top:1px solid var(--line); }
   .pub:first-of-type{ border-top:0; }
@@ -188,11 +194,9 @@
       <h1>Meng&nbsp;(Chris)&nbsp;Qiu</h1>
       <!-- EDIT: one-sentence research mission (this is the line that "sells" your work) -->
       <p class="lede">
-        <p class="lede">
         I'm an Assistant Professor of Quantitative Methods, Measurement, and Statistics
         at UC Merced. My work centers on quantitative methods for real-world data, spanning
         Bayesian nonparametrics, variational inference, and deep learning.
-        </p>
       </p>
       <!-- EDIT: your position / department / institution -->
       <p class="title-line">
@@ -201,8 +205,8 @@
       <div class="cta-row">
         <!-- EDIT: your email -->
         <a class="btn btn-solid" href="mailto:you@university.edu">Contact me</a>
-        <!-- EDIT: link your CV PDF (drop the file in the repo and update the href) -->
-        <a class="btn btn-ghost" href="#cv">Curriculum Vitae</a>
+        <!-- Links to your CV file — upload CV.pdf to the repo (root) -->
+        <a class="btn btn-ghost" href="CV.pdf" target="_blank" rel="noopener">Curriculum Vitae</a>
       </div>
     </div>
     <!-- EDIT: replace this placeholder with an <img class="portrait" src="assets/photo.jpg" alt="Meng (Chris) Qiu"> -->
@@ -305,13 +309,27 @@
     <span class="eyebrow">Background</span>
     <h2>Curriculum Vitae</h2>
     <p class="intro">
-      A brief note on your education and appointments, with a link to the full PDF.
+      A brief note on my education and training.
     </p>
     <div class="contact-grid">
-      <div class="row"><div class="k">Education</div><div class="v">Ph.D., [University] — [year]–present</div></div>
-      <div class="row"><div class="k">Previously</div><div class="v">B.S. / M.S., [University] — [year]</div></div>
-      <div class="row"><div class="k">Interests</div><div class="v">[keyword], [keyword], [keyword]</div></div>
-      <div class="row"><div class="k">Full CV</div><div class="v"><a href="#">Download PDF &#8594;</a></div></div>
+      <div class="row">
+        <div class="k">Ph.D.</div>
+        <div class="v">Quantitative Psychology, University of Notre Dame, 2024<br>
+          Advised by <a href="#" target="_blank" rel="noopener">Prof. Ke-Hai Yuan</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="k">M.S.</div>
+        <div class="v">Applied and Computational Mathematics and Statistics</a>, University of Notre Dame, 2022<br>
+          Advised by <a href="https://blog.umd.edu/lizhen01/" target="_blank" rel="noopener">Prof. Lizhen Lin</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="k">M.A.</div>
+        <div class="v">Measurement, Statistics and Evaluation, University of Maryland, 2016<br>
+          Advised by <a href="https://education.umd.edu/directory/gregory-r-hancock" target="_blank" rel="noopener">Prof. Gregory R. Hancock</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
