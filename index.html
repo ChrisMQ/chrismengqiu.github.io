@@ -128,6 +128,17 @@
   .pub .meta .authors{ font-size:.9rem; color:var(--ink-soft); }
   .pub .meta .links{ margin-top:7px; font-size:.82rem; display:flex; gap:14px; }
 
+  /* teaching */
+  .course{ display:flex; gap:22px; padding:20px 0; border-top:1px solid var(--line); }
+  .course:first-of-type{ border-top:0; }
+  .course .term{
+    font-family:"Spectral",serif; font-size:.95rem; color:var(--accent);
+    min-width:130px; flex-shrink:0; font-weight:500;
+  }
+  .course .cbody h4{ font-size:1.02rem; font-weight:600; margin-bottom:3px; }
+  .course .cbody .cmeta{ font-size:.9rem; color:var(--ink-soft); }
+  .course .cbody .clinks{ margin-top:6px; font-size:.82rem; display:flex; gap:14px; }
+
   /* contact */
   .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px 40px; max-width:640px; }
   .contact-grid .row{ padding:14px 0; border-bottom:1px solid var(--line); }
@@ -146,6 +157,7 @@
     .portrait{ order:-1; }
     .cards{ grid-template-columns:1fr; }
     .contact-grid{ grid-template-columns:1fr; }
+    .course{ flex-direction:column; gap:4px; }
     .nav-links{
       display:none; position:absolute; top:66px; left:0; right:0;
       flex-direction:column; gap:0; background:var(--paper);
@@ -178,8 +190,8 @@
       <li><a href="#home">Home</a></li>
       <li><a href="#research">Research</a></li>
       <li><a href="#publications">Publications</a></li>
+      <li><a href="#teaching">Teaching</a></li>
       <li><a href="lab.html">Lab</a></li>
-      <li><a href="#cv">CV</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -200,7 +212,7 @@
       </p>
       <!-- EDIT: your position / department / institution -->
       <p class="title-line">
-        Ph.D. in Quantitative Psychology
+        Ph.D. in <a href="https://psychology.nd.edu/graduate/areas/quantitative/" target="_blank" rel="noopener">Quantitative Psychology</a>
       </p>
       <div class="cta-row">
         <!-- EDIT: your email -->
@@ -303,6 +315,48 @@
   </div>
 </section>
 
+<!-- ========================== TEACHING ========================== -->
+<section class="block" id="teaching">
+  <div class="wrap">
+    <span class="eyebrow">In the classroom</span>
+    <h2>Teaching</h2>
+    <p class="intro">
+      Courses I teach at UC Merced. <!-- EDIT: optional one-line teaching philosophy -->
+    </p>
+
+    <!-- EDIT each entry. Copy a .course block to add more. Newest first. -->
+    <div class="course">
+      <div class="term">Fall 2025</div>
+      <div class="cbody">
+        <h4>PSY&nbsp;[number] &middot; [Course Title]</h4>
+        <div class="cmeta">Graduate &middot; [one-line description of the course.]</div>
+        <div class="clinks">
+          <a href="#">Syllabus</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="course">
+      <div class="term">Spring 2025</div>
+      <div class="cbody">
+        <h4>PSY&nbsp;[number] &middot; [Course Title]</h4>
+        <div class="cmeta">Undergraduate &middot; [one-line description of the course.]</div>
+        <div class="clinks">
+          <a href="#">Syllabus</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="course">
+      <div class="term">Fall 2024</div>
+      <div class="cbody">
+        <h4>PSY&nbsp;[number] &middot; [Course Title]</h4>
+        <div class="cmeta">Graduate &middot; [one-line description of the course.]</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ========================= CONTACT ========================= -->
 <section class="block" id="contact">
   <div class="wrap">
@@ -318,13 +372,6 @@
 <!-- ========================== FOOTER ========================== -->
 <footer>
   <div class="wrap foot-inner">
-    <div class="socials">
-      <!-- EDIT: your profile links -->
-      <a href="#">Google Scholar</a>
-      <a href="#">ORCID</a>
-      <a href="#">GitHub</a>
-      <a href="#">LinkedIn</a>
-    </div>
     <div class="copy">© <span id="year"></span> Meng (Chris) Qiu</div>
   </div>
 </footer>
