@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- EDIT: page title -->
+<title>Lab · Meng (Chris) Qiu</title>
+<meta name="description" content="Research lab led by Meng (Chris) Qiu — focus areas, members, and news.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  /* ============================================================
+     THEME — keep these identical to index.html so the site matches
+     ============================================================ */
+  :root{
+    --paper:      #f8f6f2;
+    --surface:    #ffffff;
+    --ink:        #16202e;
+    --ink-soft:   #4a5563;
+    --accent:     #2d6a63;
+    --accent-dk:  #1f4d47;
+    --line:       #e4e0d8;
+    --maxw:       1080px;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:"Inter",-apple-system,BlinkMacSystemFont,sans-serif;
+    line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  a{ color:var(--accent); text-decoration:none; transition:color .18s ease; }
+  a:hover{ color:var(--accent-dk); }
+
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 28px; }
+  .eyebrow{
+    font-size:.72rem; font-weight:600; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--accent);
+  }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(248,246,242,.86);
+    backdrop-filter:saturate(180%) blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{ display:flex; align-items:center; justify-content:space-between; height:66px; }
+  .brand{ font-family:"Spectral",serif; font-size:1.18rem; font-weight:600; color:var(--ink); }
+  .nav-links{ display:flex; gap:30px; list-style:none; }
+  .nav-links a{ color:var(--ink-soft); font-size:.92rem; font-weight:500; }
+  .nav-links a:hover{ color:var(--accent); }
+  .nav-links a.active{ color:var(--accent); }
+  .nav-toggle{ display:none; background:none; border:0; font-size:1.5rem; color:var(--ink); cursor:pointer; }
+
+  /* ---------- HERO ---------- */
+  .hero{ padding:80px 0 64px; border-bottom:1px solid var(--line); }
+  .hero h1{
+    font-family:"Spectral",serif; font-weight:600;
+    font-size:clamp(1.9rem,4vw,2.9rem); line-height:1.08; letter-spacing:-.01em;
+    margin:14px 0 22px; max-width:20ch;
+  }
+  .hero .lede{ font-size:1.14rem; color:var(--ink-soft); max-width:60ch; margin-bottom:26px; }
+  .cta-row{ display:flex; gap:14px; flex-wrap:wrap; }
+  .btn{
+    display:inline-block; font-size:.92rem; font-weight:600;
+    padding:12px 22px; border-radius:2px; transition:all .18s ease;
+  }
+  .btn-solid{ background:var(--accent); color:#fff; }
+  .btn-solid:hover{ background:var(--accent-dk); color:#fff; }
+  .btn-ghost{ border:1px solid var(--line); color:var(--ink); }
+  .btn-ghost:hover{ border-color:var(--accent); color:var(--accent); }
+
+  /* ---------- SECTION ---------- */
+  section.block{ padding:66px 0; border-bottom:1px solid var(--line); }
+  .block h2{
+    font-family:"Spectral",serif; font-weight:600;
+    font-size:1.85rem; margin:8px 0 8px; letter-spacing:-.01em;
+  }
+  .block .intro{ color:var(--ink-soft); max-width:62ch; margin-bottom:38px; }
+  .prose p{ max-width:68ch; margin-bottom:16px; color:var(--ink-soft); }
+  .prose p strong{ color:var(--ink); }
+
+  /* research cards */
+  .cards{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .card{
+    background:var(--surface); border:1px solid var(--line);
+    border-radius:3px; padding:28px 26px; transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .card:hover{ transform:translateY(-3px); box-shadow:0 10px 30px rgba(22,32,46,.07); }
+  .card h3{ font-family:"Spectral",serif; font-size:1.18rem; font-weight:600; margin:14px 0 10px; }
+  .card p{ font-size:.95rem; color:var(--ink-soft); }
+
+  /* members grid */
+  .people{ display:grid; grid-template-columns:repeat(4,1fr); gap:26px; }
+  .person{ text-align:left; }
+  .person .avatar{
+    width:100%; aspect-ratio:1/1; border-radius:3px; object-fit:cover;
+    background:var(--surface); border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--ink-soft); font-size:.75rem; text-align:center; margin-bottom:12px;
+  }
+  .person h4{ font-size:1rem; font-weight:600; margin-bottom:2px; }
+  .person .role{ font-size:.85rem; color:var(--ink-soft); }
+  .person .plinks{ margin-top:6px; font-size:.8rem; display:flex; gap:12px; }
+
+  /* subheading for member categories */
+  .subhead{ font-size:.75rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
+            color:var(--ink-soft); margin:40px 0 22px; }
+  .subhead:first-of-type{ margin-top:0; }
+
+  /* news list */
+  .news{ display:flex; gap:20px; padding:18px 0; border-top:1px solid var(--line); }
+  .news:first-of-type{ border-top:0; }
+  .news .date{ font-family:"Spectral",serif; font-size:.95rem; color:var(--accent); min-width:90px; font-weight:500; }
+  .news .item{ font-size:.98rem; }
+
+  /* join box */
+  .join{ background:var(--surface); border:1px solid var(--line); border-radius:3px; padding:34px 32px; }
+  .join h3{ font-family:"Spectral",serif; font-size:1.3rem; font-weight:600; margin-bottom:10px; }
+  .join p{ color:var(--ink-soft); max-width:60ch; margin-bottom:18px; }
+
+  /* footer */
+  footer{ padding:40px 0; }
+  .foot-inner{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; }
+  .foot-inner .socials{ display:flex; gap:20px; font-size:.9rem; }
+  .foot-inner .copy{ font-size:.85rem; color:var(--ink-soft); }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:900px){ .people{ grid-template-columns:repeat(3,1fr); } }
+  @media (max-width:820px){
+    .cards{ grid-template-columns:1fr; }
+    .people{ grid-template-columns:repeat(2,1fr); }
+    .nav-links{
+      display:none; position:absolute; top:66px; left:0; right:0;
+      flex-direction:column; gap:0; background:var(--paper);
+      border-bottom:1px solid var(--line); padding:8px 28px 18px;
+    }
+    .nav-links.open{ display:flex; }
+    .nav-links li{ padding:10px 0; border-top:1px solid var(--line); }
+    .nav-toggle{ display:block; }
+    .news{ flex-direction:column; gap:2px; }
+    .news .date{ min-width:auto; }
+  }
+  @media (max-width:480px){ .people{ grid-template-columns:1fr 1fr; } }
+
+  a:focus-visible, button:focus-visible, .btn:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
+  @media (prefers-reduced-motion:reduce){
+    *{ transition:none !important; scroll-behavior:auto !important; }
+    .card:hover{ transform:none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================ NAV ============================ -->
+<!-- Nav links point back to the homepage sections, plus the current Lab page -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <span class="brand">Meng (Chris) Qiu</span>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    <ul class="nav-links" id="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#research">Research</a></li>
+      <li><a href="index.html#publications">Publications</a></li>
+      <li><a href="lab.html" class="active">Lab</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- ============================ HERO ============================ -->
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Research Group</span>
+    <!-- EDIT: your lab's name -->
+    <h1>The [Lab Name] Lab</h1>
+    <!-- EDIT: one or two sentences describing what the lab does -->
+    <p class="lede">
+      We are a research group at [University] studying [the lab's central theme].
+      Our work spans [area one], [area two], and [area three], with the goal of
+      [the broader impact you're after].
+    </p>
+    <div class="cta-row">
+      <a class="btn btn-solid" href="#join">Join the lab</a>
+      <a class="btn btn-ghost" href="#people">Meet the team</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ ABOUT ============================ -->
+<section class="block" id="about">
+  <div class="wrap prose">
+    <span class="eyebrow">Overview</span>
+    <h2>About the lab</h2>
+    <p>
+      A short paragraph introducing the lab: <strong>what questions drive your
+      research</strong>, the approach or methods you use, and what makes the group's
+      perspective distinctive.
+    </p>
+    <p>
+      A second paragraph on context — where the lab sits, who you collaborate with,
+      and the kind of problems a student or collaborator would work on here.
+    </p>
+  </div>
+</section>
+
+<!-- =========================== PEOPLE =========================== -->
+<section class="block" id="people">
+  <div class="wrap">
+    <span class="eyebrow">The team</span>
+    <h2>People</h2>
+
+    <!-- ----- Principal Investigator ----- -->
+    <p class="subhead">Principal Investigator</p>
+    <div class="people">
+      <div class="person">
+        <!-- EDIT: replace with <img class="avatar" src="assets/you.jpg" alt="Meng (Chris) Qiu"> -->
+        <div class="avatar">Photo</div>
+        <h4>Meng (Chris) Qiu</h4>
+        <div class="role">Principal Investigator</div>
+        <div class="plinks"><a href="index.html">Homepage</a><a href="#">Scholar</a></div>
+      </div>
+    </div>
+
+    <!-- ----- Students / Members. Copy a .person block to add more. ----- -->
+    <p class="subhead">Ph.D. Students</p>
+    <div class="people">
+      <div class="person">
+        <div class="avatar">Photo</div>
+        <h4>Student Name</h4>
+        <div class="role">Ph.D. Student · [year] cohort</div>
+        <div class="plinks"><a href="#">Website</a></div>
+      </div>
+      <div class="person">
+        <div class="avatar">Photo</div>
+        <h4>Student Name</h4>
+        <div class="role">Ph.D. Student · [year] cohort</div>
+        <div class="plinks"><a href="#">Website</a></div>
+      </div>
+      <div class="person">
+        <div class="avatar">Photo</div>
+        <h4>Student Name</h4>
+        <div class="role">Ph.D. Student · [year] cohort</div>
+        <div class="plinks"><a href="#">Website</a></div>
+      </div>
+    </div>
+
+    <!-- ----- Alumni (optional) ----- -->
+    <p class="subhead">Alumni</p>
+    <div class="prose">
+      <p>Former Student — now [position, place]. &nbsp;·&nbsp; Former Student — now [position, place].</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ NEWS ============================ -->
+<section class="block" id="news">
+  <div class="wrap">
+    <span class="eyebrow">Updates</span>
+    <h2>News</h2>
+    <div style="margin-top:26px;">
+      <!-- EDIT each entry. Newest first. -->
+      <div class="news">
+        <div class="date">Jul 2026</div>
+        <div class="item">A short line about a paper accepted, a talk, a new member, or a grant.</div>
+      </div>
+      <div class="news">
+        <div class="date">May 2026</div>
+        <div class="item">Another recent update goes here.</div>
+      </div>
+      <div class="news">
+        <div class="date">Feb 2026</div>
+        <div class="item">And another one — keep these brief.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ JOIN ============================ -->
+<section class="block" id="join">
+  <div class="wrap">
+    <span class="eyebrow">Openings</span>
+    <h2>Join us</h2>
+    <div class="join" style="margin-top:24px;">
+      <h3>Prospective students &amp; collaborators</h3>
+      <p>
+        A note on who you're looking for — prospective Ph.D. students, master's or
+        undergraduate researchers, postdocs — and how they should reach out. Mention
+        what to include (CV, research interests) so the email is easy to act on.
+      </p>
+      <a class="btn btn-solid" href="mailto:you@university.edu">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========================== FOOTER ========================== -->
+<footer>
+  <div class="wrap foot-inner">
+    <div class="socials">
+      <a href="index.html">Homepage</a>
+      <a href="#">Google Scholar</a>
+      <a href="#">GitHub</a>
+    </div>
+    <div class="copy">© <span id="year"></span> Meng (Chris) Qiu</div>
+  </div>
+</footer>
+
+<script>
+  const btn = document.querySelector('.nav-toggle');
+  const menu = document.getElementById('menu');
+  btn.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+  menu.querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => { menu.classList.remove('open'); btn.setAttribute('aria-expanded', false); })
+  );
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
