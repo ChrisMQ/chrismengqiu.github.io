@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Psychopathology · Meng (Chris) Qiu</title>
+<meta name="description" content="Psychopathology — research by Meng (Chris) Qiu.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{ --paper:#f8f6f2; --surface:#fff; --ink:#16202e; --ink-soft:#4a5563;
+         --accent:#2d6a63; --accent-dk:#1f4d47; --line:#e4e0d8; --maxw:1080px; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{ background:var(--paper); color:var(--ink);
+        font-family:"Inter",-apple-system,BlinkMacSystemFont,sans-serif; line-height:1.6; -webkit-font-smoothing:antialiased; }
+  a{ color:var(--accent); text-decoration:none; transition:color .18s ease; }
+  a:hover{ color:var(--accent-dk); }
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 28px; }
+  .eyebrow{ font-size:.72rem; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--accent); }
+  header.nav{ position:sticky; top:0; z-index:50; background:rgba(248,246,242,.86);
+    backdrop-filter:saturate(180%) blur(10px); border-bottom:1px solid var(--line); }
+  .nav-inner{ display:flex; align-items:center; justify-content:space-between; height:66px; }
+  .brand{ font-family:"Spectral",serif; font-size:1.18rem; font-weight:600; color:var(--ink); }
+  .nav-links{ display:flex; gap:30px; list-style:none; }
+  .nav-links a{ color:var(--ink-soft); font-size:.92rem; font-weight:500; }
+  .nav-links a:hover{ color:var(--accent); }
+  .nav-toggle{ display:none; background:none; border:0; font-size:1.5rem; color:var(--ink); cursor:pointer; }
+  .thero{ padding:70px 0 56px; border-bottom:1px solid var(--line); }
+  .thero .icon{ color:var(--accent); display:block; margin-bottom:16px; }
+  .thero .icon svg{ width:60px; height:60px; }
+  .thero h1{ font-family:"Spectral",serif; font-weight:600; font-size:clamp(2rem,4vw,2.9rem);
+    line-height:1.08; letter-spacing:-.01em; margin:6px 0 18px; }
+  .thero .lede{ font-size:1.16rem; color:var(--ink-soft); max-width:60ch; }
+  .backlink{ display:inline-block; margin-top:26px; font-size:.9rem; font-weight:500; }
+  .backlink::before{ content:"\2190 "; }
+  section.block{ padding:60px 0; border-bottom:1px solid var(--line); }
+  .block h2{ font-family:"Spectral",serif; font-weight:600; font-size:1.6rem; margin-bottom:22px; letter-spacing:-.01em; }
+  .prose p{ max-width:68ch; margin-bottom:16px; color:var(--ink-soft); }
+  .pub{ display:flex; gap:20px; padding:20px 0; border-top:1px solid var(--line); }
+  .pub:first-of-type{ border-top:0; }
+  .pub .yr{ font-family:"Spectral",serif; font-size:1.05rem; color:var(--accent); min-width:52px; font-weight:500; }
+  .pub .meta h4{ font-size:1.02rem; font-weight:600; margin-bottom:4px; }
+  .pub .meta .venue{ font-size:.9rem; color:var(--ink-soft); font-style:italic; }
+  .pub .meta .authors{ font-size:.9rem; color:var(--ink-soft); }
+  footer{ padding:40px 0; }
+  .foot-inner{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; }
+  .foot-inner .copy{ font-size:.85rem; color:var(--ink-soft); }
+  @media (max-width:820px){
+    .nav-links{ display:none; position:absolute; top:66px; left:0; right:0; flex-direction:column; gap:0;
+      background:var(--paper); border-bottom:1px solid var(--line); padding:8px 28px 18px; }
+    .nav-links.open{ display:flex; }
+    .nav-links li{ padding:10px 0; border-top:1px solid var(--line); }
+    .nav-toggle{ display:block; }
+  }
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
+  @media (prefers-reduced-motion:reduce){ *{ transition:none !important; scroll-behavior:auto !important; } }
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html">Meng (Chris) Qiu</a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    <ul class="nav-links" id="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#research">Research</a></li>
+      <li><a href="index.html#publications">Publications</a></li>
+      <li><a href="index.html#teaching">Teaching</a></li>
+      <li><a href="lab.html">Lab</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="thero">
+  <div class="wrap">
+    <span class="eyebrow">Substantive Research</span>
+    <span class="icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="22" r="14"/><path d="M16 23 q 4 -7 8 0 t 8 0"/></svg></span>
+    <h1>Psychopathology</h1>
+    <p class="lede">Modeling the structure of mental disorders, including mixture-model approaches to depression phenotyping.</p>
+    <a class="backlink" href="index.html#research">Back to Research</a>
+  </div>
+</section>
+
+<section class="block" id="overview">
+  <div class="wrap prose">
+    <span class="eyebrow">Overview</span>
+    <h2>About this work</h2>
+      <p>In collaboration with clinical researchers, I apply mixture models and latent variable methods to questions about the structure and heterogeneity of mental disorders — for example, identifying subtypes in depression (phenotyping).</p>
+      <p>The goal is to bring rigorous quantitative modeling to substantive questions in psychopathology while being careful about what these models can and cannot support.</p>
+  </div>
+</section>
+
+<section class="block" id="pubs">
+  <div class="wrap">
+    <span class="eyebrow">Selected Work</span>
+    <h2>Related publications</h2>
+      <div class="pub">
+        <div class="yr">2024</div>
+        <div class="meta">
+          <h4>Mixture model applications in depression phenotyping: Practices, challenges, and recommendations</h4>
+          <div class="authors">Q. Liu, <strong>M. Qiu</strong>, B. A. Nestor, V. J. Rodriguez, &amp; D. A. Cole</div>
+          <div class="venue">Current Psychology</div>
+        </div>
+      </div>
+    <!-- EDIT: add more related papers as .pub blocks -->
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <div class="copy">© <span id="year"></span> Meng (Chris) Qiu</div>
+  </div>
+</footer>
+<script>
+  const btn=document.querySelector('.nav-toggle'), menu=document.getElementById('menu');
+  btn.addEventListener('click',()=>{const o=menu.classList.toggle('open');btn.setAttribute('aria-expanded',o);});
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');btn.setAttribute('aria-expanded',false);}));
+  document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
