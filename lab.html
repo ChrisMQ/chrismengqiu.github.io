@@ -372,21 +372,27 @@
     const wrap = document.getElementById('mapWrap');
     const popup = document.getElementById('mapPopup');
     if (wrap) {
+      let hideTimer;
+      const show = s => {
+        clearTimeout(hideTimer);
+        const people = s.people.map(p => p[1]
+          ? '<a href="'+p[1]+'" target="_blank" rel="noopener">'+p[0]+'</a>'
+          : '<span class="p">'+p[0]+'</span>').join('');
+        popup.innerHTML = '<div class="inst">'+s.inst+(s.home?' &middot; home':'')+'</div>'+people;
+        popup.style.left = s.x + '%'; popup.style.top = s.y + '%'; popup.style.display = 'block';
+      };
+      const scheduleHide = () => { hideTimer = setTimeout(() => { popup.style.display = 'none'; }, 180); };
       sites.forEach(s => {
         const m = document.createElement('div');
         m.className = 'marker' + (s.home ? ' home' : '');
         m.style.left = s.x + '%'; m.style.top = s.y + '%';
-        m.addEventListener('click', e => {
-          e.stopPropagation();
-          const people = s.people.map(p => p[1]
-            ? '<a href="'+p[1]+'" target="_blank" rel="noopener">'+p[0]+'</a>'
-            : '<span class="p">'+p[0]+'</span>').join('');
-          popup.innerHTML = '<div class="inst">'+s.inst+(s.home?' &middot; home':'')+'</div>'+people;
-          popup.style.left = s.x + '%'; popup.style.top = s.y + '%'; popup.style.display = 'block';
-        });
+        m.addEventListener('mouseenter', () => show(s));
+        m.addEventListener('mouseleave', scheduleHide);
         wrap.appendChild(m);
       });
-      wrap.addEventListener('click', () => { popup.style.display = 'none'; });
+      // keep the popup open while the cursor is over it, so links stay clickable
+      popup.addEventListener('mouseenter', () => clearTimeout(hideTimer));
+      popup.addEventListener('mouseleave', scheduleHide);
     }
   })();
   document.getElementById('year').textContent = new Date().getFullYear();
