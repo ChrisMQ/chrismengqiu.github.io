@@ -298,7 +298,7 @@
   <div class="wrap">
     <span class="eyebrow">Collaborators around the world</span>
     <div class="map-wrap" id="mapWrap">
-      <svg class="map-lines" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="16.55" y1="29.24" x2="28.63" y2="28.34" stroke="#2d6a63" stroke-width="0.18" opacity="0.4"/><line x1="16.55" y1="29.24" x2="30.25" y2="26.47" stroke="#2d6a63" stroke-width="0.18" opacity="0.4"/><line x1="16.55" y1="29.24" x2="26.94" y2="27.77" stroke="#2d6a63" stroke-width="0.18" opacity="0.4"/><line x1="16.55" y1="29.24" x2="26.74" y2="26.51" stroke="#2d6a63" stroke-width="0.18" opacity="0.4"/><line x1="16.55" y1="29.24" x2="17.41" y2="31.13" stroke="#2d6a63" stroke-width="0.18" opacity="0.4"/><line x1="16.55" y1="29.24" x2="26.05" y2="26.83" stroke="#2d6a63" stroke-width="0.18" opacity="0.4"/><line x1="16.55" y1="29.24" x2="82.55" y2="28.27" stroke="#2d6a63" stroke-width="0.18" opacity="0.4"/><line x1="16.55" y1="29.24" x2="82.32" y2="27.77" stroke="#2d6a63" stroke-width="0.18" opacity="0.4"/><line x1="16.55" y1="29.24" x2="85.18" y2="29.19" stroke="#2d6a63" stroke-width="0.18" opacity="0.4"/></svg>
+      <svg class="map-lines" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="16.55" y1="29.24" x2="28.63" y2="28.34" stroke="#2d6a63" stroke-width="0.18" opacity="0.4"/><line x1="16.55" y1="29.24" x2="26.94" y2="27.77" stroke="#2d6a63" stroke-width="0.18" opacity="0.4"/><line x1="16.55" y1="29.24" x2="26.74" y2="26.51" stroke="#2d6a63" stroke-width="0.18" opacity="0.4"/><line x1="16.55" y1="29.24" x2="17.41" y2="31.13" stroke="#2d6a63" stroke-width="0.18" opacity="0.4"/><line x1="16.55" y1="29.24" x2="26.05" y2="26.83" stroke="#2d6a63" stroke-width="0.18" opacity="0.4"/><line x1="16.55" y1="29.24" x2="23.03" y2="32.47" stroke="#2d6a63" stroke-width="0.18" opacity="0.4"/><line x1="16.55" y1="29.24" x2="82.55" y2="28.27" stroke="#2d6a63" stroke-width="0.18" opacity="0.4"/><line x1="16.55" y1="29.24" x2="82.32" y2="27.77" stroke="#2d6a63" stroke-width="0.18" opacity="0.4"/><line x1="16.55" y1="29.24" x2="85.18" y2="29.19" stroke="#2d6a63" stroke-width="0.18" opacity="0.4"/></svg>
       <div class="map-popup" id="mapPopup"></div>
     </div>
     <div class="map-legend">
@@ -317,15 +317,23 @@
       <!-- EDIT each entry. Newest first. -->
       <div class="news">
         <div class="date">Jul 2026</div>
-        <div class="item">A short line about a paper accepted, a talk, a new member, or a grant.</div>
+        <div class="item">Yanjia Geng presented a poster on label switching at IMPS 2026 in Seoul.</div>
+      </div>
+      <div class="news">
+        <div class="date">Jun 2026</div>
+        <div class="item">Talk on Bayesian nonparametric imputation for IRT at M3 2026, Fordham University.</div>
       </div>
       <div class="news">
         <div class="date">May 2026</div>
-        <div class="item">Another recent update goes here.</div>
+        <div class="item">Received a UC Merced Academic Senate Faculty Research Grant.</div>
       </div>
       <div class="news">
         <div class="date">Feb 2026</div>
-        <div class="item">And another one — keep these brief.</div>
+        <div class="item">Paper on class selection in growth mixture models published in <em>Structural Equation Modeling</em>. <a href="https://doi.org/10.1080/10705511.2025.2563187" target="_blank" rel="noopener">doi</a></div>
+      </div>
+      <div class="news">
+        <div class="date">Jan 2026</div>
+        <div class="item">Yanjia Geng joined the lab as a Ph.D. student.</div>
       </div>
     </div>
   </div>
@@ -368,7 +376,7 @@
   );
   // collaborator map
   (function(){
-    const sites = [{"x": 16.55, "y": 29.24, "inst": "University of California, Merced", "home": true, "people": [["Sarah Depaoli", "https://psychology.ucmerced.edu/content/sarah-depaoli"], ["Fan Jia", "https://psychology.ucmerced.edu/content/fan-jia"], ["Haiyan Liu", "https://psychology.ucmerced.edu/content/haiyan-liu"]]}, {"x": 28.63, "y": 28.34, "inst": "University of Maryland", "home": false, "people": [["Shitao Fan", null], ["Lizhen Lin", "https://blog.umd.edu/lizhen01/"]]}, {"x": 30.25, "y": 26.47, "inst": "Boston University", "home": false, "people": [["Qimin Liu", "https://www.bu.edu/psych/profile/qimin-liu/"]]}, {"x": 26.94, "y": 27.77, "inst": "The Ohio State University", "home": false, "people": [["Sally Paganin", "https://stat.osu.edu/people/paganin.1"]]}, {"x": 26.74, "y": 26.51, "inst": "University of Michigan", "home": false, "people": [["Yajuan Si", "https://sph.umich.edu/faculty-profiles/si-yajuan.html"]]}, {"x": 17.41, "y": 31.13, "inst": "University of California, Riverside", "home": false, "people": [["Weixin Yao", "https://faculty.ucr.edu/~weixiny/"]]}, {"x": 26.05, "y": 26.83, "inst": "University of Notre Dame", "home": false, "people": [["Ke-Hai Yuan", "https://psychology.nd.edu/people/ke-hai-yuan/"]]}, {"x": 82.55, "y": 28.27, "inst": "Nankai University", "home": false, "people": [["Fanlin Ding", "https://zsg.nankai.edu.cn/info/1100/1089.htm"]]}, {"x": 82.32, "y": 27.77, "inst": "China Agricultural University", "home": false, "people": [["Wenjie Zhao", "https://cidga.cau.edu.cn/art/2024/9/2/art_39918_1035628.html"]]}, {"x": 85.18, "y": 29.19, "inst": "Inha University", "home": false, "people": [["Ilsang Ohn", "https://sites.google.com/view/iohn"]]}];
+    const sites = [{"x": 16.55, "y": 29.24, "inst": "University of California, Merced", "home": true, "people": [["Sarah Depaoli", "https://psychology.ucmerced.edu/content/sarah-depaoli"], ["Fan Jia", "https://psychology.ucmerced.edu/content/fan-jia"], ["Haiyan Liu", "https://psychology.ucmerced.edu/content/haiyan-liu"]]}, {"x": 28.63, "y": 28.34, "inst": "University of Maryland", "home": false, "people": [["Shitao Fan", null], ["Lizhen Lin", "https://blog.umd.edu/lizhen01/"]]}, {"x": 26.94, "y": 27.77, "inst": "The Ohio State University", "home": false, "people": [["Sally Paganin", "https://stat.osu.edu/people/paganin.1"]]}, {"x": 26.74, "y": 26.51, "inst": "University of Michigan", "home": false, "people": [["Yajuan Si", "https://sph.umich.edu/faculty-profiles/si-yajuan.html"]]}, {"x": 17.41, "y": 31.13, "inst": "University of California, Riverside", "home": false, "people": [["Weixin Yao", "https://faculty.ucr.edu/~weixiny/"]]}, {"x": 26.05, "y": 26.83, "inst": "University of Notre Dame", "home": false, "people": [["Ke-Hai Yuan", "https://psychology.nd.edu/people/ke-hai-yuan/"]]}, {"x": 23.03, "y": 32.47, "inst": "Baylor University", "home": false, "people": [["Min Liu", "https://edp.moody.baylor.edu/min-liu-phd"]]}, {"x": 82.55, "y": 28.27, "inst": "Nankai University", "home": false, "people": [["Fanlin Ding", "https://zsg.nankai.edu.cn/info/1100/1089.htm"]]}, {"x": 82.32, "y": 27.77, "inst": "China Agricultural University", "home": false, "people": [["Wenjie Zhao", "https://cidga.cau.edu.cn/art/2024/9/2/art_39918_1035628.html"]]}, {"x": 85.18, "y": 29.19, "inst": "Inha University", "home": false, "people": [["Ilsang Ohn", "https://sites.google.com/view/iohn"]]}];
     const wrap = document.getElementById('mapWrap');
     const popup = document.getElementById('mapPopup');
     if (wrap) {
